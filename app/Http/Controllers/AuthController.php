@@ -8,15 +8,17 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         return view('auth.register');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $validated = request()->validate([
             'name' => 'required|min:3|max:40',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed|min:8'
         ]);
         User::create([
             'name' => $validated['name'],
@@ -24,5 +26,35 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
         return redirect()->route('dashboard')->with('success', 'Account created successfully!');
+    }
+
+    public function login(Request $request)
+    {
+        return view('auth.login');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $validated = request()->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        if (auth()->attempt($validated)) {
+            request()->session()->regenerate();
+
+            return redirect()->route('dashboard')->with('success', 'Logged in successfully!');
+        } else {
+            return redirect()->route('login')->withErrors([
+                'email' => 'Invalid creditials'
+            ])->onlyInput('email');
+        }
+    }
+
+    public function logout() {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerate();
+        return redirect()->route('dashboard')->with('success', 'Logged out successfully!');
     }
 }
