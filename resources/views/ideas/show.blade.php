@@ -7,15 +7,8 @@
         </div>
         <div class="col-6">
             @include('includes.success-message')
-            @include('includes.submit-idea')
-            <hr>
-            @foreach ($ideas as $idea)
-                <div class="mt-3">
-                    @include('includes.idea-card')
-                </div>
-            @endforeach
             <div class="mt-3">
-                {{$ideas->links()}}
+                @include('includes.idea-card')
             </div>
         </div>
         <div class="col-3">
