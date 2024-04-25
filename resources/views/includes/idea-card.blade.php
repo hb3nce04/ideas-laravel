@@ -8,6 +8,7 @@
                 <div>
                     <h5 class="card-title mb-0"><a href="#"> {{ $idea->user->name }}
                         </a></h5>
+                        <a href={{ route('ideas.show', $idea->id) }}>View</a>
                 </div>
             </div>
             @if (auth()->id() == $idea->user->id)
@@ -16,7 +17,7 @@
                         @csrf
                         @method('DELETE')
                         <a class="mx-2" href={{ route('ideas.edit', $idea->id) }}>Edit</a>
-                        <a href={{ route('ideas.show', $idea->id) }}>View</a>
+
                         <button class="ms-1 btn btn-danger btn-sm">X</button>
                     </form>
                 </div>
