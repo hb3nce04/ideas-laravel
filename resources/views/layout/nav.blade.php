@@ -18,8 +18,10 @@
                     </li>
                 @endguest
                 @auth()
+                {{-- <img style="width:35px" class="avatar-sm rounded-circle"
+                    src="https://api.dicebear.com/8.x/initials/svg?&backgroundType=gradientLinear&radius=50&seed={{Auth::user()->name}}" alt={{Auth::user()->name}}> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile">Hello, {{Auth::user()->name}}!</a>
+                        <a class="nav-link" href="/users/{{Auth::id()}}">Hello, {{Auth::user()->name}}!</a>
                     </li>
                     <li class="nav-item">
                         <form action={{route('logout')}} method="POST">

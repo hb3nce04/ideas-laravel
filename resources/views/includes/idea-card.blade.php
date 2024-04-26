@@ -3,10 +3,10 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{ $idea->user->name }}"
+                    src="https://api.dicebear.com/8.x/initials/svg?&backgroundType=gradientLinear&radius=50&seed={{ $idea->user->name }}"
                     alt={{ $idea->user->name }}>
                 <div>
-                    <h5 class="card-title mb-0"><a href="#"> {{ $idea->user->name }}
+                    <h5 class="card-title mb-0"><a href="/users/{{$idea->user->id}}"> {{ $idea->user->name }}
                         </a></h5>
                         <a href={{ route('ideas.show', $idea->id) }}>View</a>
                 </div>

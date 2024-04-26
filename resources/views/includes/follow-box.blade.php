@@ -6,7 +6,7 @@
         <div class="hstack gap-2 mb-3">
             <div class="avatar">
                 <a href="#!"><img class="avatar-img rounded-circle"
-                        src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt=""></a>
+                        src="https://api.dicebear.com/8.x/initials/svg?&backgroundType=gradientLinear&radius=50&seed=Mario" alt=""></a>
             </div>
             <div class="overflow-hidden">
                 <a class="h6 mb-0" href="#!">Mario Brother</a>
@@ -18,7 +18,7 @@
         <div class="hstack gap-2 mb-3">
             <div class="avatar">
                 <a href="#!"><img class="avatar-img rounded-circle"
-                        src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt=""></a>
+                        src="https://api.dicebear.com/8.x/initials/svg?&backgroundType=gradientLinear&radius=50&seed=Mario" alt=""></a>
             </div>
             <div class="overflow-hidden">
                 <a class="h6 mb-0" href="#!">Mario Brother</a>
