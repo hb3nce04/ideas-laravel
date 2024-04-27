@@ -1,5 +1,5 @@
 @auth
-    <h4> Share yours ideas </h4>
+    <h4>Hi, {{Auth::user()->name}}! You can share your ideas!</h4>
     <div class="row">
         <form action={{ route('ideas.store') }} method="POST">
             @csrf
@@ -16,5 +16,5 @@
     </div>
 @endauth
 @guest
-    <h4>Login to share your Ideas</h4>
+    <h4>Please log in to share your Ideas!</h4>
 @endguest
