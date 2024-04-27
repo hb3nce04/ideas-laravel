@@ -11,17 +11,17 @@
             <ul class="navbar-nav">
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                        <a class="nav-link active" aria-current="page" href={{route('login')}}>Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
+                        <a class="nav-link" href={{route('register')}}>Register</a>
                     </li>
                 @endguest
                 @auth()
                 {{-- <img style="width:35px" class="avatar-sm rounded-circle"
                     src="https://api.dicebear.com/8.x/initials/svg?&backgroundType=gradientLinear&radius=50&seed={{Auth::user()->name}}" alt={{Auth::user()->name}}> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/users/{{Auth::id()}}">Hello, {{Auth::user()->name}}!</a>
+                        <a class="nav-link" href={{route('profile')}}>Hello, {{Auth::user()->name}}!</a>
                     </li>
                     <li class="nav-item">
                         <form action={{route('logout')}} method="POST">
