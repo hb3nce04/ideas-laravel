@@ -10,13 +10,13 @@
             @include('includes.error-message')
             <div class="mt-3">
                 <div class="mt-3">
-                    @include('includes.user-card')
+                    @include('users.includes.user-card')
                 </div>
                 <hr>
 
                 @forelse ($ideas as $idea)
                     <div class="mt-3">
-                        @include('includes.idea-card')
+                        @include('./ideas/includes.idea-card')
                     </div>
                 @empty
                     <p class="text-center mt-4">No ideas found.</p>

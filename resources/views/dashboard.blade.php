@@ -8,11 +8,11 @@
         <div class="col-6">
             @include('includes.success-message')
             @include('includes.error-message')
-            @include('includes.submit-idea')
+            @include('ideas.includes.submit-idea')
             <hr>
             @forelse ($ideas as $idea)
                 <div class="mt-3">
-                    @include('includes.idea-card')
+                    @include('ideas.includes.idea-card')
                 </div>
             @empty
                 <p class="text-center mt-4">No ideas found.</p>

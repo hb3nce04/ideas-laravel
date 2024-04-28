@@ -10,7 +10,7 @@
             @include('includes.error-message')
             <div class="mt-3">
                 <div class="mt-3">
-                    @include('includes.user-edit-card')
+                    @include('users.includes.user-edit-card')
                 </div>
             </div>
         </div>
