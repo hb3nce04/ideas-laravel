@@ -46,9 +46,9 @@
             @include('ideas.includes.like-button')
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
-                    {{ $idea->created_at }} </span>
+                    {{ $idea->created_at->diffForHumans() }} </span>
             </div>
         </div>
-        @include('includes.comments-box')
+        @include('ideas.includes.comments-box')
     </div>
 </div>

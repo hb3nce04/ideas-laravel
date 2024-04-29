@@ -17,11 +17,11 @@
                 src={{$comment->user->getImageURL()}} alt={{$comment->user->name}}>
             <div class="w-100">
                 <div class="d-flex justify-content-between">
-                    <h6 class="">{{$comment->user->name}}
+                    <h6><a href={{url('/users', $idea->user)}}>{{$comment->user->name}}</a>
                     </h6>
-                    <small class="fs-6 fw-light text-muted"> {{$comment->created_at}}</small>
+                    <small class="fs-6 fw-light text-muted"> {{$comment->created_at->diffForHumans()}}</small>
                 </div>
-                <p class="fs-6 mt-3 fw-light">
+                <p class="fs-6 fw-light">
                     {{$comment->content}}
                 </p>
             </div>

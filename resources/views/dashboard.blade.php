@@ -17,7 +17,7 @@
             @empty
                 <p class="text-center mt-4">No ideas found.</p>
             @endforelse
-            <div class="mt-3">
+            <div class="mt-3 d-flex justify-content-center">
                 {{ $ideas->withQueryString()->links() }}
             </div>
         </div>
