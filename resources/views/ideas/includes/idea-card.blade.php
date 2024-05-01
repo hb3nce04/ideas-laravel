@@ -12,7 +12,7 @@
                 </div>
             </div>
             @auth
-                @can('idea.edit', $idea)
+                @can('update', $idea)
                     <div>
                         <form action={{ route('ideas.destroy', $idea->id) }} method="POST">
                             @csrf
