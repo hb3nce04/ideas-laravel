@@ -11,17 +11,20 @@
                     <a href={{ route('ideas.show', $idea->id) }}>View</a>
                 </div>
             </div>
-            @if (auth()->id() == $idea->user->id)
-                <div>
-                    <form action={{ route('ideas.destroy', $idea->id) }} method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <a class="mx-2" href={{ route('ideas.edit', $idea->id) }}>Edit</a>
+            @auth
+                @can('idea.edit', $idea)
+                    <div>
+                        <form action={{ route('ideas.destroy', $idea->id) }} method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <a class="mx-2" href={{ route('ideas.edit', $idea->id) }}>Edit</a>
 
-                        <button class="ms-1 btn btn-danger btn-sm">X</button>
-                    </form>
-                </div>
-            @endif
+                            <button class="ms-1 btn btn-danger btn-sm">X</button>
+                        </form>
+                    </div>
+                @endcan
+            @endauth
+
         </div>
     </div>
     <div class="card-body">
