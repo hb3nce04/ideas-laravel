@@ -20,3 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+
+// <title>
+//   @hasSection("title")@yield("title") | @endif {{ config("app.name") }}
+// </title>

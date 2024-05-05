@@ -10,13 +10,11 @@
                     <span class="fs-6 text-muted">{{ $user->email }}</span>
                 </div>
             </div>
-            @auth
-                @if (Auth::id() == $user->id)
-                    <div>
-                        <a href={{ route('users.edit', $user->id) }}>Edit</a>
-                    </div>
-                @endif
-            @endauth
+            @can('update', $user)
+                <div>
+                    <a href={{ route('users.edit', $user->id) }}>Edit</a>
+                </div>
+            @endcan
         </div>
         <div class="px-2 mt-4">
             <h5 class="fs-5"> Bio : </h5>
@@ -25,7 +23,7 @@
             </p>
             @include('users.includes.user-stats')
             @auth
-                @if (Auth::id() !== $user->id)
+                @if (Auth::user()->isNot($user))
                     <div class="mt-3">
                         @if (Auth::user()->follows($user))
                             <form action={{ route('users.unfollow', $user->id) }} method="POST">

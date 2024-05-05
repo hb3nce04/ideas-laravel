@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateCommentRequest;
 use App\Models\Idea;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function store(Idea $idea) {
+    public function store(CreateCommentRequest $request, Idea $idea) {
 
-        $validated = request()->validate([
-            'content' => 'required|min:3|max:240'
-        ]);
+        $validated = $request->validated();
 
         $validated['user_id'] = auth()->id();
         $validated['idea_id'] = $idea->id;

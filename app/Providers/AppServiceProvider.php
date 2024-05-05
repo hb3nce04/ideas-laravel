@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Idea;
 use App\Models\User;
 use App\Policies\IdeaPolicy;
+use App\Policies\UserPolicy;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -29,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
             return (bool) auth()->user()->is_admin;
         });
         Gate::policy(Idea::class, IdeaPolicy::class);
+        Gate::policy(User::class, UserPolicy::class);
     }
 }
