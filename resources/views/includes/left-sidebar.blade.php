@@ -34,9 +34,8 @@
             </li> --}}
         </ul>
     </div>
-    @auth
-        <div class="card-footer text-center py-2">
-            <a class="btn btn-link btn-sm" href={{ route('profile') }}>View Profile </a>
-        </div>
-    @endauth
+    <div class="card-footer text-center py-2">
+        <a class="btn btn-link btn-sm" href={{ route('lang', 'en') }}>en</a>
+        <a class="btn btn-link btn-sm" href={{ route('lang', 'hu') }}>hu</a>
+    </div>
 </div>

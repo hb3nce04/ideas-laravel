@@ -16,5 +16,5 @@
     </div>
 @endauth
 @guest
-    <h4>Please log in to share your Ideas!</h4>
+    <h4>@lang('ideas.welcome_message_guest')</h4>
 @endguest

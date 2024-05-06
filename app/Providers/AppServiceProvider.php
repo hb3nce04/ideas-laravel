@@ -6,6 +6,7 @@ use App\Models\Idea;
 use App\Models\User;
 use App\Policies\IdeaPolicy;
 use App\Policies\UserPolicy;
+use Illuminate\Support\Facades\App;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;

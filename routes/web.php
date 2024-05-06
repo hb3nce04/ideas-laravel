@@ -38,3 +38,9 @@ Route::get('/terms', function () {
 
 // Admin
 Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth','can:admin']);
+
+
+Route::get('lang/{lang}', function($lang) {
+    session()->put('lang', $lang);
+    return redirect()->route('dashboard');
+})->name('lang');
