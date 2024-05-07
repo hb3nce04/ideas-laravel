@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Idea;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $ideas = Idea::orderBy('created_at', 'DESC'); // without(..)
-        if (request()->has('search')) {
-            $ideas = $ideas->where('content','like','%'.request()->get('search','').'%');
-        }
-        return view('dashboard', ['ideas' => $ideas->paginate(5)]);
+        $ideas = Idea::when(request()->has('search'), function (Builder $query) {
+            $query->search(request()->get('search'));
+        })->orderBy('created_at', 'DESC')->paginate(5);
+        return view('dashboard', compact('ideas'));
     }
 }
