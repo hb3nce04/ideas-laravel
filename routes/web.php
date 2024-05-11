@@ -10,6 +10,9 @@ use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\IdeaLikeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\IdeaController as AdminIdeaController;
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -37,8 +40,13 @@ Route::get('/terms', function () {
 })->name('terms');
 
 // Admin
-Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth','can:admin']);
+Route::middleware(['auth','can:admin'])->prefix('/admin')->as('admin.')->group(function () {
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::resource('users', AdminUserController::class)->only(['index']);
+    Route::resource('ideas', AdminIdeaController::class)->only(['index']);
+    Route::resource('comments', AdminCommentController::class)->only(['index', 'destroy']);
 
+});
 
 Route::get('lang/{lang}', function($lang) {
     session()->put('lang', $lang);
